@@ -1,0 +1,315 @@
+\documentclass[11pt,oneside,DIV=9,parskip=off]{scrarticle} %DIV=calc defaults to DIV=8
+
+%%% FONT AND TYPESETTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fontspec}
+	\setmainfont[
+		Ligatures={TeX,Common}, 
+		Numbers={Proportional},
+		BoldFont = * Semibold,
+		ItalicFont = * Italic,
+		BoldItalicFont = * Semibold Italic,
+		SmallCapsFeatures = {BoldFont= * Semibold, BoldItalicFont= * Semibold Italic},
+		]{Libertinus Serif}
+
+\usepackage{microtype}% Better typographical adjustments
+\usepackage{fontawesome5}% Cool icons
+\usepackage{pbox}% Boxes that automatically fit contents
+
+%Reduce amount of hyphenation
+\lefthyphenmin=4
+\righthyphenmin=4
+
+%%% HEADERS AND FOOTERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{titling}
+\usepackage[manualmark,headsepline]{scrlayer-scrpage}
+	%With one-sided document, all pages are right-hand pages: 
+	%i = inner = left, o = outer = right
+	\ihead{William Johnston}\chead{}\ohead{Curriculum Vitae}%
+	\ifoot{}\cfoot*{\pagemark}\ofoot*{\scriptsize Last updated: \today}%
+
+%%% LINKS AND REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+	\hypersetup{colorlinks=true,linkcolor=cyan,filecolor=cyan,urlcolor=cyan}
+	\urlstyle{same}
+
+%%% SPACING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Remove paragraph indent
+\setlength{\parindent}{0pt}
+
+% Create and set custom column widths
+\newlength{\leftcolwidth}
+\newlength{\rightcolwidth}
+\setlength{\leftcolwidth}{9em}
+\setlength{\rightcolwidth}{\dimexpr(\linewidth-\leftcolwidth)\relax}
+
+% Create and set a standard unit of vertical spacing
+\newlength{\basicverticalspace}
+\setlength{\basicverticalspace}{0.66\bigskipamount}
+
+% Create and set custom spacing before and after CV items
+\newlength{\spacingbefore}
+\newlength{\spacingafter}
+\setlength{\spacingbefore}{0\basicverticalspace}
+\setlength{\spacingafter}{1\basicverticalspace}
+
+% Spread out items vertically over full page
+%\AtBeginDocument{\flushbottom}
+	
+% Set hanging indent for right-hand column entries
+\newcommand{\hang}{\hangindent=0.75em\hangafter=1}
+
+%%% SECTION HEADINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Fonts for headings:
+\addtokomafont{section}{\Large\rmfamily\bfseries\scshape}
+\addtokomafont{subsection}{\large\rmfamily\mdseries\scshape}
+\addtokomafont{subsubsection}{\rmfamily\mdseries\itshape}
+\addtokomafont{paragraph}{\rmfamily\mdseries\scshape}
+%\addtokomafont{subparagraph}{\rmfamily\mdseries\scshape}
+
+%Remove all section numbers
+\setcounter{secnumdepth}{0}
+
+%Run-in and indented headings
+\RedeclareSectionCommands[runin=false]{section,subsection,subsubsection}
+\RedeclareSectionCommands[runin=true]{paragraph,subparagraph}
+\RedeclareSectionCommands[indent=1.5em]{subsubsection,subparagraph}
+
+%Spacing before/after headings:
+\RedeclareSectionCommand[%
+	beforeskip=2\basicverticalspace,
+	afterskip=1\basicverticalspace,
+	]{section}
+\RedeclareSectionCommand[%
+	beforeskip=1.5\basicverticalspace,
+	afterskip=0.75\basicverticalspace,
+	]{subsection}
+\RedeclareSectionCommand[%
+	beforeskip=0.75\basicverticalspace,
+	afterskip=0.75\basicverticalspace,
+	]{subsubsection}
+\RedeclareSectionCommand[%
+	beforeskip=0\basicverticalspace,
+	afterskip=0.5em,
+	]{paragraph}
+\RedeclareSectionCommand[%
+	beforeskip=0\basicverticalspace,
+	afterskip=0.5em,
+	]{subparagraph}
+
+
+%%% MACROS FOR CV ITEMS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Basic formatting for one-column entries
+\newcommand{\myonecol}[1]{%
+	\vspace{\spacingbefore}%
+	\begin{minipage}[t]{\linewidth}%
+		\strut#1%
+	\end{minipage}%
+	\vspace{\spacingafter}\par%
+	}
+
+%Basic formatting for two-column entries	
+\newcommand{\mytwocol}[2]{%
+	\vspace{\spacingbefore}%
+	\begin{minipage}[t]{\leftcolwidth}%
+		\strut#1%
+	\end{minipage}%
+	\begin{minipage}[t]{\rightcolwidth}%
+		\strut#2%
+	\end{minipage}%
+	\vspace{\spacingafter}\par%	
+	}
+
+%Formatting for publications
+\newcommand{\pub}[1]{%
+	\myonecol{#1}%
+	}
+
+%Formatting for talks
+\newcommand{\talk}[1]{%
+	\myonecol{#1}%
+	}
+
+%Formatting for generic undated items
+\newcommand{\undated}[1]{%
+	\myonecol{#1}%
+	}
+
+%Formatting for dated CV items
+\newcommand{\cvline}[2]{%
+	\mytwocol{#1}{#2}%
+	}
+	
+%Formatting for notes (with smaller text)
+\newcommand{\noteline}[2]{%
+	\vspace{-.9\spacingafter}%
+	{\footnotesize\mytwocol{#1}{\everypar{\hang}#2}}%
+	}
+	
+%%% MACROS FOR CONTACT INFO + ICONS %%%%%%%%%%%%%%
+\newcommand{\addfaicon}[2]{% #1 = faicon, #2 = text
+	\raisebox{-1pt}{\small#1}\enspace#2%
+	}
+
+\newcommand{\email}[1]{\addfaicon{\faEnvelope}{\href{mailto:#1}{#1}}}
+\newcommand{\website}[1]{\addfaicon{\faGlobe}{\href{https://#1}{#1}}}
+\newcommand{\github}[1]{\addfaicon{\faGithub}{\href{https://#1}{#1}}}
+\newcommand{\phone}[1]{\addfaicon{\faPhone}{+1 (507) 629-7002}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{plain}
+
+\begin{center}
+{\huge{William Johnston}}\\
+\vspace{\baselineskip}
+\textsc{\Large Curriculum Vitae}\\
+\end{center}\par
+
+\vspace{2\basicverticalspace}
+
+%%% CONTACT INFO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pbox[t]{0.55\linewidth}{	
+	Department of Linguistics\\
+	McGill University\\
+	1085 ave Dr-Penfield\\
+	Montr\'{e}al, QC H3A 1A7, Canada
+	}
+\hfill
+\pbox[t]{0.5\linewidth}{
+	\email{william.johnston4@mail.mcgill.ca}\\
+	\website{williamjohnston.github.io}
+%	\github{williamjohnston.github.io}\\
+%	\phone{+1 (507) 629-7002}\\		
+	}
+
+\vspace{2\basicverticalspace}
+
+%%% EDUCATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Education}
+\cvline{Ph.D, 2024}{Linguistics, McGill University} 
+	\noteline{\textit{(expected)}}{Dissertation: \textit{Event structure and serial verb constructions in White Hmong.}\par Committee: Jessica Coon and Luis Alonso-Ovalle (co-supervisors), Junko Shimoyama, and Lisa Travis.}
+\cvline{B.A., 2013}{Linguistics, Carleton College (Northfield, MN)}
+	\noteline{}{\textit{Magna cum laude}, Distinction\par Thesis: \emph{Focus, too, and conjunction, too: The syntax and semantics of Japanese \emph{mo}-coordination.} \thickspace Advisor: Cherlon Ussery.}
+
+%%% PROFESSIONAL EXPERIENCE %%%%%%%%%%%%%%%%%%%%%%%%
+\section{Professional Experience}
+\cvline{Winter 2023}{%
+	Lecturer\\
+	Department of Linguistics, McGill University\\
+	Languages of the World (LING 315)}
+\cvline{Winter 2021}{%
+	Lecturer\\
+	Department of Linguistics, McGill University\\
+	Meaning in Language (LING 260)}
+\cvline{Fall 2019--Fall 2021}{%
+	Teaching Assistant\\
+	Department of Linguistics, McGill University\\
+	Phonetics (LING 330), Instructor: Meghan Clayards\\
+	Phonetics (LING 330), Instructor: Francisco Torreira\\
+	Meaning in Language (LING 260), Instructor: Bernhard Schwarz\\
+	Phonetics (LING 330), Instructor: Connie Ting}
+\cvline{Fall 2020}{%
+	Grader\\
+	Department of Linguistics, McGill University\\
+	Structure of a Specific Language (LING 410), Instr.: Bernhard Schwarz}
+\cvline{Fall 2012}{%
+	Teaching Assistant\\
+	Linguistics Department, Carleton College\\
+	Introduction to Linguistics (LING 110), Instructor: Cherlon Ussery}
+
+%%% RESEARCH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Research}
+
+%\subsection{Grants}% Should go here, if I had something to show off
+
+\subsection{Journal Articles}
+\pub{\textbf{Johnston, William.} (2023). ``Pair-list answers to questions with plural definites.'' \textit{Semantics and Pragmatics} 16(2). \href{https://doi.org/10.3765/sp.16.2}{https://doi.org/10.3765/sp.16.2}}
+
+%\subsection{Book Chapters}
+
+\subsection{Conference Proceedings}
+\pub{\textbf{Johnston, William.} (Forthcoming). ``Culmination entailments in V and P: Evidence from White Hmong.'' In: \textit{Proceedings of the 41\textsuperscript{st} West Coast Conference on Formal Linguistics}. Ed.\ by Yağmur Kiper, Larry Lyu, Richard Wang, and Niko Webster. Somerville, MA: Cascadilla Press.}
+\pub{\textbf{Johnston, William.} (2022). ``Nonspecific promises: The Intensional Restitution Effect.'' In: \textit{Proceedings of Sinn und Bedeutung 26}. Ed.\ by Daniel Gutzmann and Sophie Repp. pp.\ 483--502. University of Cologne.}
+\pub{\textbf{Johnston, William.} (2019). ``Pair-list questions from dependent plurals.'' In: \textit{Proceedings of the 22\textsuperscript{nd} Amsterdam Colloquium}. Ed.\ by Julian J.\ Schl\"oder, Dean McHugh, and Floris Roelofsen. pp.\ 201--210. Amsterdam: ILLC.}
+
+%\subsection{Book Reviews}
+
+%\subsection{Edited Volumes}
+
+\subsection{Manuscripts}
+\pub{\textbf{Johnston, William.} (In revision). ``Nonspecific promises: The Intensional Restitution Effect.''}
+
+\subsection{Invited Talks}
+\talk{``The verb phrase in Hmong: Serialization and event structure.'' \textit{University of Minnesota Linguistics Colloquium Series}. November 11, 2022.}
+
+%\subsection{Invited Commentaries}
+
+\subsection{Conference Presentations}
+\subsubsection{Talks Given:}
+\talk{``Directed motion in White Hmong: Serial verb constructions as complex PPs.'' \textit{Montreal-Ottawa-Toronto-Hamilton Syntax Workshop (MOTH)}, Universit\'e du Qu\'ebec \`a Montr\'eal. April 23, 2022.}
+\talk{``Verb serialization as event-building: Evidence from Hmong.'' \textit{96\textsuperscript{th} Annual Meeting of the Linguistic Society of America (LSA)}, Washington, DC. January 9, 2022.}
+\talk{``Nonspecific promises: The Intensional Restitution Effect.'' \textit{Sinn und Bedeutung 26}, University of Cologne. September 10, 2021.}
+\talk{``Nonspecific promises: The Intensional Restitution Effect.'' \textit{Toronto-Ottawa-Montreal Semantics Workshop (TOM) 13}, University of Toronto. May 21, 2021.}
+\talk{``Verb serialization as event-building: Evidence from Hmong.'' \textit{Montreal-Ottawa-Toronto-Hamilton Syntax Workshop (MOTH) 2021}, McMaster University. April 19, 2021.}
+\talk{``Pair-list questions from dependent plurals.'' \textit{22\textsuperscript{nd} Amsterdam Colloquium}, University of Amsterdam. December 19, 2019.}
+
+\subsubsection{Posters Presented:}
+\talk{``Culmination entailments in V and P: Evidence from White Hmong.'' \textit{41\textsuperscript{st} West Coast Conference on Formal Linguistics (WCCFL)}, University of California Santa Cruz. May 6, 2023}
+\talk{``Focus, too, and conjunction, too: The syntax and semantics of Japanese \textit{mo}-coordination.'' \textit{Minnesota Undergraduate Linguistics Symposium}, St.\ Olaf College. April 13, 2013.}
+
+%%% AWARDS, GRANTS, & FELLOWSHIPS %%%%%%%%%%%%%%%%%%
+\section{Awards, Grants, \& Fellowships}
+\cvline{2022--2023}{Graduate Excellence Fellowship, McGill University, \$20,000.\\Linguistics Department Travel Fund, \$1,000.}
+\cvline{2021--2022}{Graduate Excellence Award, McGill University, \$15,000.\\Graduate Research Enhancement and Travel Award, \$141}
+\cvline{2020--2021}{Cremona Memorial Fellowship, McGill University, \$10,000.\par \hang Linguistics Department Nominee, Arts Graduate Student Teaching Award, McGill University.}
+\cvline{2019--2020}{Graduate Excellence Award, McGill University, \$1,000.}
+\cvline{2018--2019}{Graduate Excellence Award, McGill University, \$15,000.}
+
+% FORMAT: Granting Agency. Grant Name, Institute, \textit{Grant Title} (Grant Number), \$Amount. (Co-investigator(s): Names.)
+
+%%% SERVICE AND COMMUNITY %%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Service \& Community}
+
+\subsection{Department Organizing}
+\cvline{Sep.\ 2019--Aug.\ 2021}{Editor, \textit{McLing} Newsletter\\McGill University Linguistics Department}
+\cvline{Jun.--Aug.\ 2021}{Organizer, Event Structure Reading Group\\McGill University Linguistics Department}
+\cvline{Spring 2021}{Co-organizer, Accepted Students Open House\\McGill University Linguistics Department}
+\cvline{Spring 2020}{Co-organizer, Accepted Students Open House\\McGill University Linguistics Department}
+
+\subsection{Conference Organizing}
+\cvline{Spring 2023}{Workshop on Structure and Constituency in Languages of the Americas (WSCLA) 2023}
+
+\subsection{Reading and Research Groups}
+\cvline{Mar.\ 2022--Present}{University of Minnesota Community-Engaged Hmong Linguistics Research and Reading Group}
+\cvline{Sep.\ 2020--Present}{Montreal Underdocumented Languages Linguistics Lab (MULL-Lab)}
+\cvline{Sep.\ 2018--Present}{McGill Syntax/Semantics Reading Group}
+\cvline{Jun--Aug.\ 2021}{McGill Event Structure Reading Group}
+
+\subsection{Outreach}
+%\cvline{Sep.\2021--Present}{Host: `Hmong Linguistics Resources' web page and annotated bibliography\\ https://williamjohnston.github.io/hmong_linguistics}
+\cvline{Spring 2023}{Panel discussion: ``Ask a Grad Student''\\Society of Linguistics Undergrads at McGill}
+\cvline{Spring 2022}{Panel discussion: ``Ask a Grad Student''\\Society of Linguistics Undergrads at McGill}
+\cvline{Winter 2015}{Panel discussion: ``What paths will a linguistics major take you on?''\\Carleton College Linguistics Department}
+						
+\subsection{Reviewing}
+
+\paragraph{Conference Proceedings:} Toronto–Montreal Bantu Colloquium (Ba-TOM).
+
+%%% NON-DEGREE COURSEWORK %%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Non-degree coursework:}
+\cvline{Sep.--Nov.\ 2020}{Hmong Language Workshop\\Southeast Asian Diaspora Project, Minneapolis MN}
+\cvline{Jul.--Aug.\ 2013}{Denver Publishing Institute, University of Denver}
+
+%%% PREVIOUS PROFESSIONAL EXPERIENCE %%%%%%%%%%%%%%%
+\section{Previous Professional Experience}
+\cvline{Jan.\ 2014--Jul.\ 2018}{Financial Advisor\\Morgan Stanley Wealth Management, Minneapolis MN}
+
+%%% LANGUAGES & SKILLS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IS ANYTHING HERE WORTH ACTUALLY INCLUDING?
+% Languages and Skills
+% \textbf{Languages:} English (native), Spanish (basic), Japanese (basic), French (basic)\par
+% \textbf{Software:} LaTeX, Praat, R, RStudio\par
+% \textbf{Programming:} Python, Java, Clojure\par
+\end{document}
