@@ -1,4 +1,4 @@
-\documentclass[11pt,oneside,DIV=calc,parskip=off]{scrarticle} %DIV=calc defaults to DIV=8
+\documentclass[11pt,oneside,DIV=8,parskip=off,letterpaper]{scrarticle} %DIV=calc defaults to DIV=7
 
 %%% FONT AND TYPESETTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fontspec}
@@ -49,7 +49,7 @@
 
 % Create and set a standard unit of vertical spacing
 \newlength{\basicverticalspace}
-\setlength{\basicverticalspace}{0.66\bigskipamount}
+\setlength{\basicverticalspace}{0.6\bigskipamount} %.66 is better
 
 % Create and set custom spacing before and after CV items
 \newlength{\spacingbefore}
@@ -87,7 +87,7 @@
 	]{section}
 \RedeclareSectionCommand[%
 	beforeskip=1.1\basicverticalspace,
-	afterskip=1\basicverticalspace,
+	afterskip=.5\basicverticalspace,
 	]{subsection}
 \RedeclareSectionCommand[%
 	beforeskip=0.75\basicverticalspace,
@@ -199,11 +199,11 @@
 	\noteline{}{Dissertation: \textit{Event structure and serial verbs in Hmong.}\par Supervisory committee: Jessica Coon and Luis Alonso-Ovalle (co-supervisors), Junko Shimoyama, and Lisa Travis.\par External examiner: Peter Svenonius (University of Tromsø).}
 \cvline{B.A., 2013}{Linguistics, Carleton College (Northfield, MN)}
 
-%%% PROFESSIONAL %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% EMPLOYMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Employment}
 
 \cvline{2024--present}{Postdoctoral researcher\\Département de linguistique, Université du Québec à Montréal}
-	\noteline{}{Fonds de recherche du Québec (FRQ) Postdoctoral Fellowship, supervised by Richard Compton.}
+	\noteline{}{Fonds de recherche du Québec (FRQ) Postdoctoral Fellowship.\\Supervised by Richard Compton.}
 
 \cvline{Fall 2024}{Course Lecturer\\Département de linguistique, Université du Québec à Montréal}
 
@@ -211,39 +211,49 @@
 
 \cvline{Winter 2021}{Course Lecturer\\Department of Linguistics, McGill University}
 
-
-%%% RESEARCH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% RESEARCH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Research}
 
+%%% GRANTS AND FELLOWSHIPS %%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Grants \& Fellowships}
 
 \pub{Fonds de recherche du Québec (FRQ) Postdoctoral Fellowship, 2024--2026. Project: \textit{Les catégories syntaxiques en hmong blanc: implications pour la théorie linguistique et l'enseignement des langues | Syntactic categories in White Hmong: Implications for linguistic theory and language education}, \$90,000 CAD.}
 
+%%% JOURNAL ARTICLES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Journal Articles}
 
 \pub{\textbf{Johnston, William.} (2023). ``Pair-list answers to questions with plural definites.'' \textit{Semantics and Pragmatics} 16(2). \href{https://doi.org/10.3765/sp.16.2}{https://doi.org/10.3765/sp.16.2}}
 
+%%% BOOK CHAPTERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Book Chapters}
 
+%%% PROCEEDINGS PAPERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Conference Proceedings}
 
 \pub{\textbf{Johnston, William.} (Forthcoming). ``Decomposing Path: Deprepositional verbs in White Hmong'' In: \textit{Proceedings of the 42\textsuperscript{nd} West Coast Conference on Formal Linguistics}. %Ed.\ by
 }
+
 \pub{\textbf{Johnston, William.} (Forthcoming). ``Culmination entailments in V and P: Evidence from White Hmong.'' In: \textit{Proceedings of the 41\textsuperscript{st} West Coast Conference on Formal Linguistics}. Ed.\ by Yağmur Kiper, Larry Lyu, Richard Wang, and Niko Webster. Somerville, MA: Cascadilla Press.}
+
 \pub{\textbf{Johnston, William.} (2024). ``Two diagnostics for preposition-hood: Decomposing Path in White Hmong.'' In: \emph{Proceedings of the 14th Generative Linguistics in the Old World in Asia (GLOW in Asia XIV) 2024.} Ed.\ by Xiangyu Li, Zetao Xu, Yuqiao Du, Zhuo Chen, Chenghao Hu, Zhongyang Yu, and Victor Junnan Pan.}
+
 \pub{\textbf{Johnston, William.} (2022). ``Nonspecific promises: The Intensional Restitution Effect.'' In: \textit{Proceedings of Sinn und Bedeutung 26}. Ed.\ by Daniel Gutzmann and Sophie Repp. pp.\ 483--502. University of Cologne.}
+
 \pub{\textbf{Johnston, William.} (2019). ``Pair-list questions from dependent plurals.'' In: \textit{Proceedings of the 22\textsuperscript{nd} Amsterdam Colloquium}. Ed.\ by Julian J.\ Schl\"oder, Dean McHugh, and Floris Roelofsen. pp.\ 201--210. Amsterdam: ILLC.}
 
+%%% BOOK REVIEWS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Book Reviews}
 
+%%% EDITED VOLUMES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{Edited Volumes}
 
+%%% MANUSCRIPTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Manuscripts}
-\pub{\textbf{Johnston, William.} (In revision). ``Paths across worlds: the presupposition of back in intensional contexts.'' %[\href{}{lingbuzz}]
-} 
+\pub{\textbf{Johnston, William.} (In revision). ``Paths across worlds: the presupposition of `back' in intensional contexts.''} 
 
 \pub{\textbf{Johnston, William.} (In revision). ``Causation and serialization in White Hmong.''} %[\href{https://ling.auf.net/lingbuzz/007585}{lingbuzz}]
 
+%%% INVITED TALKS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Invited Talks}
 \talk{``Causation and serialization in Hmong.'' \textit{Converging on Causal Ontology Analyses}. Centre national de la recherche scientifique (CNRS), Paris. October 11, 2024.}
 
@@ -253,23 +263,35 @@
 
 %\subsection{Invited Commentaries}
 
+%%% CONFERENCE TALKS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Refereed Conference Presentations}
+
 \subsubsection{Talks Delivered:}
 \talk{``Parts of speech in Hmong.'' \textit{6\textsuperscript{th} Hmong Studies Consortium International Conference}, Merced College, Merced, CA. November 2, 2024.}
-%note ad-hoc spacing:
-\talk{``Clausal Complementation, Finiteness and Object Control in Hmong'' (with Hooi Ling Soh). \mbox{\textit{33\textsuperscript{rd} Annual Meeting of the Southeast Asian Linguistics Society (SEALS 33)},} National Tsing Hua University, Hsinchu, Taiwan. June 15, 2024. \emph{Presented by co-author.}} 
+
+\talk{``Clausal Complementation, Finiteness and Object Control in Hmong'' (with Hooi Ling Soh). \textit{33\textsuperscript{rd} Annual Meeting of the Southeast Asian Linguistics Society (SEALS 33)}, National Tsing Hua University, Hsinchu, Taiwan. June 15, 2024. \emph{Presented by co-author.}} 
+
 \talk{``Directed motion in White Hmong: Serial verb constructions as complex PPs.'' \textit{Montreal-Ottawa-Toronto-Hamilton Syntax Workshop (MOTH 2022)}, Universit\'e du Qu\'ebec \`a Montr\'eal. April 23, 2022.}
+
 \talk{``Verb serialization as event-building: Evidence from Hmong.'' \textit{96\textsuperscript{th} Annual Meeting of the Linguistic Society of America (LSA)}, Washington, DC. January 9, 2022.}
+
 \talk{``Nonspecific promises: The Intensional Restitution Effect.'' \textit{Sinn und Bedeutung 26}, University of Cologne. September 10, 2021.}
+
 \talk{``Nonspecific promises: The Intensional Restitution Effect.'' \textit{Toronto-Ottawa-Montreal Semantics Workshop (TOM) 13}, University of Toronto. May 21, 2021.}
-%note ad-hoc spacing:
-\talk{``Verb serialization as event-building: Evidence from Hmong.'' \textit{Montreal-Ottawa-Toronto-Hamilton Syntax Workshop} \mbox{\textit{(MOTH 2021)}, McMaster University. April 19, 202\rlap{1.}}}
+
+\talk{``Verb serialization as event-building: Evidence from Hmong.'' \textit{Montreal-Ottawa-Toronto-Hamilton Syntax Workshop} \textit{(MOTH 2021)}, McMaster University. April 19, 2021.}
+
 \talk{``Pair-list questions from dependent plurals.'' \textit{22\textsuperscript{nd} Amsterdam Colloquium}, University of Amsterdam. December 19, 2019.}
 
+%%% POSTERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Poster Presentations:}
+
 \talk{``Diagnosing Prepositions: Decomposing Path in White Hmong.'' \textit{42\textsuperscript{nd} West Coast Conference on Formal Linguistics (WCCFL 42).} April 13, 2024.}
-\talk{``Diagnosing Prepositions: Decomposing Path in White Hmong.'' \textit{Generative Linguistics in the Old World in Asia (GLOW in Asia)}, Chinese University of Hong Kong. March 6, 2024.}
+
+\talk{``Diagnosing Prepositions: Decomposing Path in White Hmong.'' \textit{Generative Linguistics in the Old World in Asia (GLOW in Asia XIV)}, Chinese University of Hong Kong. March 6, 2024.}
+
 \talk{``Culmination entailments in V and P: Evidence from White Hmong.'' \textit{41\textsuperscript{st} West Coast Conference on Formal Linguistics (WCCFL 41)}, University of California Santa Cruz. May 6, 2023}
+
 \talk{``Focus, too, and conjunction, too: The syntax and semantics of Japanese \textit{mo}-coordination.'' \textit{Minnesota Undergraduate Linguistics Symposium}, St.\ Olaf College. April 13, 2013.}
 
 %%% TEACHING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -285,7 +307,8 @@
 \cvline{Winter 2021}{%
 	Meaning in Language (LING 260)\\
 	Department of Linguistics, McGill University}
-	
+
+%%% GRADUATE TEACHING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 \subsection{Teaching Assistantships}
 \cvline{Fall 2021}{%
 	Phonetics (LING 330)\\
@@ -314,7 +337,7 @@
 	Instructor: Bernhard Schwarz\par
 	Department of Linguistics, McGill University}
 
-%%% AWARDS, GRANTS, & FELLOWSHIPS %%%%%%%%%%%%%%%%%%
+%%% AWARDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Awards}
 
 \cvline{2023--2024}{\hang Graduate Research Enhancement and Travel Award, McGill University Faculty of Arts, \$640 CAD\par \hang Graduate Student Travel Award, Centre for Research on Brain, Language and Music, \$700 CAD}
@@ -329,24 +352,33 @@
 %%% SERVICE AND COMMUNITY %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Service \& Community}
 
+%%% DEPARTMENT ORGANIZING %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Department Organizing}
 %Note ad-hoc spacing: 
 \cvline{\scalebox{.97}[1.00]{Sep.\,2019--Aug.\,2021}}{Editor, \textit{McLing} Newsletter\\McGill University Linguistics Department}
+
 \cvline{Summer 2021}{Organizer, Event Structure Reading Group\\McGill University Linguistics Department}
+
 \cvline{Spring 2021}{Co-organizer, Accepted Students Open House\\McGill University Linguistics Department}
+
 \cvline{Spring 2020}{Co-organizer, Accepted Students Open House\\McGill University Linguistics Department}
 
+%%% CONFERENCE ORGANIZING %%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Conference Organizing}
 \cvline{Spring 2023}{Workshop on Structure and Constituency in Languages of the Americas (WSCLA) 2023}
 
+%%% READING/RESEARCH GROUPS %%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Reading and Research Groups}
 
-\cvline{Mar.\ 2022--Present}{University of Minnesota Community-Engaged Hmong Linguistic\rlap{s}\\Research and Reading Group}
-\cvline{Sep.\ 2020--Present}{Montreal Underdocumented Languages Linguistics Lab %(MULL-Lab)
-}
+\cvline{Mar.\ 2022--Present}{University of Minnesota Community-Engaged Hmong Linguistics\\Research and Reading Group}
+
+\cvline{Sep.\ 2020--Present}{Montreal Underdocumented Languages Linguistics Lab}
+
 \cvline{Sep.\ 2018--Present}{McGill Syntax/Semantics Reading Group}
+
 \cvline{Summer 2021}{McGill Event Structure Reading Group}
 
+%%% PROFESSIONAL ORGANIZATIONS %%%%%%%%%%%%%%%%%%%%%
 \subsection{Professional Organizations}
 \cvline{Oct.\ 2024--Present}{Linguistic Society of America (LSA)}
 \cvline{Oct.\ 2024--Present}{Canadian Linguistic Association (CLA)}
@@ -355,15 +387,19 @@
 %\cvline{}{Linguistic Society of America}
 %\cvline{}{Canadian Linguistic Association}
 
+%%% OUTREACH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Outreach}
-%\cvline{Sep.\2021--Present}{Host: `Hmong Linguistics Resources' web page and annotated bibliography\\ https://williamjohnston.github.io/hmong_linguistics}
-\cvline{Spring 2023}{Panel discussion:\,``Ask a Grad Student''\\Society of Linguistics Undergrads at McGill}
-\cvline{Spring 2022}{Panel discussion:\,``Ask a Grad Student''\\Society of Linguistics Undergrads at McGill}
-%Note ad-hoc spacing: 
-\cvline{Winter 2015}{Panel discussion:\,``What paths will a linguistics major take you o\rlap{n?''}\\Carleton College Linguistics Department}
+\cvline{Spring 2023}{Panel:\ ``Ask a Grad Student''\\Society of Linguistics Undergrads at McGill}
 
+\cvline{Spring 2022}{Panel:\ ``Ask a Grad Student''\\Society of Linguistics Undergrads at McGill}
+
+\cvline{Winter 2015}{Panel:\ ``What paths will a linguistics major take you on?''\\Carleton College Linguistics Department}
+
+%%% REVIEWING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Reviewing}
+
 \paragraph{Conference Abstracts:} Annual Conference on African Linguistics (ACAL)
+
 \paragraph{Conference Proceedings:} Toronto--Montreal Bantu Colloquium (Ba-TOM)
 
 %%% NON-DEGREE COURSEWORK %%%%%%%%%%%%%%%%%%%%%%%%%%
